@@ -1,23 +1,18 @@
-﻿@model AutoLote.Models.Marcas
+﻿@model AutoLote.Models.Modelos
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Edit";
 }
 
-<h2>Create</h2>
+<h2>Edit</h2>
 
-@using (Html.BeginForm("Create", "Marcas", FormMethod.Post,
-     new
-     {
-         id = "MarcasFormID",
-         enctype = "multipart/form-data"
-     }))
-{
-         
+@using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
 
     <fieldset>
-        <legend>Marcas</legend>
+        <legend>Modelos</legend>
+
+        @Html.HiddenFor(model => model.ModeloId)
 
         <div class="editor-label">
             @Html.LabelFor(model => model.Descripcion)
@@ -27,12 +22,16 @@
             @Html.ValidationMessageFor(model => model.Descripcion)
         </div>
 
-        <div>
-            <input type="file" name="ImagenSubida" />
+        <div class="editor-label">
+            @Html.LabelFor(model => model.MarcaId, "Marcas")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("MarcaId", String.Empty)
+            @Html.ValidationMessageFor(model => model.MarcaId)
         </div>
 
         <p>
-            <input type="submit" value="Create" />
+            <input type="submit" value="Save" />
         </p>
     </fieldset>
 }

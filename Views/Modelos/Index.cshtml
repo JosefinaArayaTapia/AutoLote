@@ -1,4 +1,4 @@
-﻿@model IEnumerable<AutoLote.Models.Marcas>
+﻿@model IEnumerable<AutoLote.Models.Modelos>
 
 @{
     ViewBag.Title = "Index";
@@ -15,7 +15,7 @@
             @Html.DisplayNameFor(model => model.Descripcion)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.UrlImagen)
+            @Html.DisplayNameFor(model => model.Marcas.Descripcion)
         </th>
         <th></th>
     </tr>
@@ -26,14 +26,12 @@
             @Html.DisplayFor(modelItem => item.Descripcion)
         </td>
         <td>
-            @if (item.UrlImagen != null ){
-            <img src="@Url.Content(item.UrlImagen)" alt="@item.MarcaId"/>
-            }
+            @Html.DisplayFor(modelItem => item.Marcas.Descripcion)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.MarcaId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.MarcaId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.MarcaId })
+            @Html.ActionLink("Edit", "Edit", new { id=item.ModeloId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ModeloId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ModeloId })
         </td>
     </tr>
 }

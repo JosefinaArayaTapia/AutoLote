@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -11,8 +12,12 @@ namespace AutoLote.Models
         [Key]
         public int ModeloId { get; set; }
         [Required(ErrorMessage = "Ingrese Descripcion")]
-        public String Descripcion { get; set; }
-        public String MarcaId { get; set; }
-        public Marcas Marcas;
+        [Display(Name = "Modelo")]
+        public string Descripcion { get; set; }
+        public int MarcaId { get; set; }
+        public Marcas Marcas { get; set; }
+
+        
+        
     }
 }

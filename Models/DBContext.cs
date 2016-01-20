@@ -20,5 +20,7 @@ namespace AutoLote.Models
         public DbSet<Tipos> Tipos { get; set; }
 
         public DbSet<Marcas> Marcas { get; set; }
+
+        public DbSet<Modelos> Modelos { get; set; }
     }
 }
