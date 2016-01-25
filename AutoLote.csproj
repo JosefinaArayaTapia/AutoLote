@@ -162,6 +162,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AutomovilController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MarcasController.cs" />
     <Compile Include="Controllers\ModelosController.cs" />
@@ -173,6 +174,8 @@
     <Compile Include="Helpers\GuardarImagen.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\Automovil.cs" />
+    <Compile Include="Models\AutomovilImagenes.cs" />
     <Compile Include="Models\DBContext.cs" />
     <Compile Include="Models\Marcas.cs" />
     <Compile Include="Models\Modelos.cs" />
@@ -237,6 +240,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
+    <Content Include="Scripts\Autolote-MarcasModelos.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -305,6 +309,12 @@
     <Content Include="Views\Modelos\Create.cshtml" />
     <Content Include="Views\Modelos\Edit.cshtml" />
     <Content Include="Views\Modelos\Delete.cshtml" />
+    <Content Include="Views\Automovil\Index.cshtml" />
+    <Content Include="Views\Automovil\Details.cshtml" />
+    <Content Include="Views\Automovil\Create.cshtml" />
+    <Content Include="Views\Automovil\Edit.cshtml" />
+    <Content Include="Views\Automovil\Delete.cshtml" />
+    <Content Include="Views\Tipos\ListaTipos.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,74 @@
+﻿@model AutoLote.Models.Automovil
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Automovil</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ModelosId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ModelosId)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Tipo.Descripcion)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Tipo.Descripcion)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TieneAireAcondicionado)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TieneAireAcondicionado)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Comentarios)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Comentarios)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Anio)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Anio)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Color)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Color)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.FechaPublicacion)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FechaPublicacion)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Email)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Email)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

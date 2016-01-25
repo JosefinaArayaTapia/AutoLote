@@ -9,104 +9,109 @@ using AutoLote.Models;
 
 namespace AutoLote.Controllers
 {
-    public class TiposController : Controller
+    public class AutomovilController : Controller
     {
         private DBContext db = new DBContext();
 
         //
-        // GET: /Tipos/
+        // GET: /Automovil/
 
         public ActionResult Index()
         {
-            return View(db.Tipos.ToList());
+            var automovils = db.Automovils.Include(a => a.Tipo);
+            return View(automovils.ToList());
         }
 
         //
-        // GET: /Tipos/Details/5
+        // GET: /Automovil/Details/5
 
         public ActionResult Details(int id = 0)
         {
-            Tipos tipos = db.Tipos.Find(id);
-            if (tipos == null)
+            Automovil automovil = db.Automovils.Find(id);
+            if (automovil == null)
             {
                 return HttpNotFound();
             }
-            return View(tipos);
+            return View(automovil);
         }
 
         //
-        // GET: /Tipos/Create
+        // GET: /Automovil/Create
 
         public ActionResult Create()
         {
+            ViewBag.TipoId = new SelectList(db.Tipos, "TipoId", "Descripcion");
             return View();
         }
 
         //
-        // POST: /Tipos/Create
+        // POST: /Automovil/Create
 
         [HttpPost]
-        public ActionResult Create(Tipos tipos)
+        public ActionResult Create(Automovil automovil)
         {
             if (ModelState.IsValid)
             {
-                db.Tipos.Add(tipos);
+                db.Automovils.Add(automovil);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(tipos);
+            ViewBag.TipoId = new SelectList(db.Tipos, "TipoId", "Descripcion", automovil.TipoId);
+            return View(automovil);
         }
 
         //
-        // GET: /Tipos/Edit/5
+        // GET: /Automovil/Edit/5
 
         public ActionResult Edit(int id = 0)
         {
-            Tipos tipos = db.Tipos.Find(id);
-            if (tipos == null)
+            Automovil automovil = db.Automovils.Find(id);
+            if (automovil == null)
             {
                 return HttpNotFound();
             }
-            return View(tipos);
+            ViewBag.TipoId = new SelectList(db.Tipos, "TipoId", "Descripcion", automovil.TipoId);
+            return View(automovil);
         }
 
         //
-        // POST: /Tipos/Edit/5
+        // POST: /Automovil/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(Tipos tipos)
+        public ActionResult Edit(Automovil automovil)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(tipos).State = EntityState.Modified;
+                db.Entry(automovil).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(tipos);
+            ViewBag.TipoId = new SelectList(db.Tipos, "TipoId", "Descripcion", automovil.TipoId);
+            return View(automovil);
         }
 
         //
-        // GET: /Tipos/Delete/5
+        // GET: /Automovil/Delete/5
 
         public ActionResult Delete(int id = 0)
         {
-            Tipos tipos = db.Tipos.Find(id);
-            if (tipos == null)
+            Automovil automovil = db.Automovils.Find(id);
+            if (automovil == null)
             {
                 return HttpNotFound();
             }
-            return View(tipos);
+            return View(automovil);
         }
 
         //
-        // POST: /Tipos/Delete/5
+        // POST: /Automovil/Delete/5
 
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {
-            Tipos tipos = db.Tipos.Find(id);
-            db.Tipos.Remove(tipos);
+            Automovil automovil = db.Automovils.Find(id);
+            db.Automovils.Remove(automovil);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
@@ -115,23 +120,6 @@ namespace AutoLote.Controllers
         {
             db.Dispose();
             base.Dispose(disposing);
-        }
-
-        public ActionResult ListaTipos() {
-
-            var listaTipos = db.Tipos;
-
-
-            if (!listaTipos.Any()) {
-
-                return HttpNotFound();
-            
-            
-            }else{
-
-            return PartialView(listaTipos) ;
-        }
-        
         }
     }
 }
